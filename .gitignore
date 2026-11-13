@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+run/
+.pytest_cache/
+# NOTE: .kiro/ must NEVER be git-ignored — Kiroween requires it at repo root.
