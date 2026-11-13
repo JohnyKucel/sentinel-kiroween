@@ -89,15 +89,15 @@ every refusal with evidence.
   (`curl -fsSL https://cli.kiro.dev/install | bash`), same agents and
   steering as the IDE. Kiro CLI v3.1.0 is installed and verified in this
   VM (`~/.local/bin/kiro-cli --version`).
-- **Kiro CLI — honest limitation (verified 10 Nov).** The CLI refuses
-  every authenticated surface without a login: `kiro-cli whoami` prints
-  "Not logged in", `kiro-cli chat` fails with an OAuth error asking for
-  `kiro-cli login --use-device-flow`, and `kiro-cli mcp list` errors
-  "You are not logged in". Login needs Grey's own Google/GitHub/AWS
-  Builder ID, so no agent turn was driven through `kiro-cli chat` in
-  Fase 3 — the Kiro usage that did happen is the spec/steering/hook/MCP
-  evidence in `.kiro/`, and that is exactly what the write-up claims.
-  Nothing about Kiro usage is overstated here.
+- **Kiro CLI — login done 13 Nov 2026 (was the honest limitation).**
+  `kiro-cli login --use-device-flow` approved in the browser (Builder ID,
+  sandijohan113@gmail.com); `whoami` confirms the login and `mcp list`
+  works. One agent turn was driven through `kiro-cli chat` on 13 Nov
+  (`--no-interactive --trust-all-tools`): it ran pytest itself (95
+  passed in 2.31s), verified `demo/demo.mp4` with ffprobe (45.67s), and
+  read `CHECKLIST.md` to list the open Phase 5 items. No MCP server has
+  been driven live through the CLI yet — still a no-claim, stated in
+  `KIRO_USAGE.md`, not hidden.
 - **MCP.** `.kiro/settings/mcp.json` wires a public read-only fetch server
   used for Sourcify/BscScan reads during development, plus a
   sequential-thinking server (no network, no writes) used for

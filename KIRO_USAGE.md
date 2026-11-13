@@ -79,29 +79,36 @@ No MCP server in the config can write, spend, or hold a credential.
 pins this: the config parses, both servers are present, and no
 credential word appears in it.)
 
-### 5. Kiro CLI (installed and verified)
+### 5. Kiro CLI (installed, verified — and now logged in)
 
 The project was built in the terminal with Kiro CLI
 (`curl -fsSL https://cli.kiro.dev/install | bash`). Kiro CLI v3.1.0 is
 installed in the build VM (`~/.local/bin/kiro-cli --version`).
 
+**Update 13 Nov 2026 — login done.** `kiro-cli login --use-device-flow`
+(device code approved in the browser, Google sign-in
+sandijohan113@gmail.com): `kiro-cli whoami` now prints "Logged in with
+Builder ID / Email: sandijohan113@gmail.com", and `kiro-cli mcp list`
+works. One real agent turn was driven through `kiro-cli chat`
+(`--no-interactive --trust-all-tools`, 13 Nov): it ran the pytest suite
+itself (**95 passed in 2.31s**), checked `demo/demo.mp4` with ffprobe
+(**45.67 seconds**), and read `CHECKLIST.md` to list the open Phase 5
+items — all numbers verified by the turn itself, matching the independent
+re-checks. No MCP server has been driven live through the CLI yet (see
+below) — that part is still a no-claim.
+
 ## Honest limitation (what did NOT happen)
 
-Kiro CLI's authenticated surfaces need a login, and that login belongs
-to the team member (Google / GitHub / AWS Builder ID):
+Kiro CLI's authenticated surfaces needed a login, and that login is now
+done (13 Nov, Builder ID above) — so `kiro-cli chat` and `kiro-cli mcp
+list` work. What still did NOT happen:
 
-- `kiro-cli whoami` prints "Not logged in".
-- `kiro-cli chat` fails with an OAuth error asking for
-  `kiro-cli login --use-device-flow`.
-- `kiro-cli mcp list` errors "You are not logged in".
-
-So **no agent turn was driven through `kiro-cli chat`, and no MCP
-server was listed or driven live through the CLI** during Fase 3–4.
-The Kiro usage that did happen is exactly the spec / steering / hook /
-MCP-config evidence in `.kiro/` described above — and that is what this
-write-up claims. The 4,000 free Kiro credits were not claimed yet
-(needs the same login + a Didit ID check by the team member, before
-Dec 1 12:00 PT); the build does not depend on them.
+- **No MCP server has been driven live through the CLI.** `mcp list`
+  runs, but no fetch/sequential-thinking call was made through
+  `kiro-cli` in any turn so far.
+- The 4,000 free Kiro credits were not claimed yet (needs the Devpost
+  Resources-tab form + a Didit ID check by the team member, before
+  Dec 1 12:00 PT); the build does not depend on them.
 
 ## What we claim / what we don't claim
 
@@ -112,6 +119,6 @@ Dec 1 12:00 PT); the build does not depend on them.
 | Save-hooks run tests on every edit | Yes — config + tests prove it |
 | MCP configured (fetch + sequential-thinking) | Yes — config in repo |
 | Kiro CLI installed (v3.1.0) | Yes — verified in VM |
-| Agent turns driven through `kiro-cli chat` | **No** — needs login, not done |
-| MCP servers driven live through the CLI | **No** — needs login, not done |
-| Kiro credits claimed | **No** — pending team-member login + ID check |
+| Agent turns driven through `kiro-cli chat` | **Yes — 1 turn, 13 Nov 2026** (device-flow login done; turn ran pytest 95 passed + ffprobe 45.67 s + CHECKLIST read, all verified) |
+| MCP servers driven live through the CLI | **No** — `mcp list` works, but no MCP server call made through the CLI yet |
+| Kiro credits claimed | **No** — pending team-member form + ID check |

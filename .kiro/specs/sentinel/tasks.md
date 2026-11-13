@@ -43,11 +43,26 @@ complete during the build window (deadline Dec 4, 2026 14:00 PT).
       MCP server `sequential-thinking` added, paste-ready write-up
       `KIRO_USAGE.md` with claim / no-claim table; chat/MCP still
       blocked on login — not run, not claimed.
+      **13 Nov update: login DONE** via device flow (Builder ID
+      sandijohan113@gmail.com; `whoami` confirms, `mcp list` works).
+      One agent turn driven through `kiro-cli chat` (13 Nov,
+      `--no-interactive --trust-all-tools`): pytest 95 passed in
+      2.31s, ffprobe demo.mp4 45.67s, CHECKLIST.md Phase 5 read — all
+      verified by the turn itself. MCP servers still NOT driven live
+      through the CLI (no-claim stands). `KIRO_USAGE.md` + README
+      updated to the new honest state.
 - [ ] 10. Claim the 4,000 free Kiro credits (Grey: Resources tab, ID
       verification, before Dec 1 12:00 PT) — needed only if Kiro usage
-      exceeds the free plan during the build
-- [ ] 11. Publish public GitHub repo (Grey presses publish) with LICENSE
-      visible, `.kiro/` at root, README + demo video link
+      exceeds the free plan during the build. **13 Nov: Devpost
+      registration DONE + Kiro User ID known
+      (`d-9067c98495.04a874c8-20c1-7000-ea62-d1058ad6c3c9`), so the
+      form is fillable; only the Didit ID check still needs Grey.**
+- [x] 11. Publish public GitHub repo (Grey presses publish) with LICENSE
+      visible, `.kiro/` at root, README + demo video link — **DONE
+      13 Nov: https://github.com/JohnyKucel/sentinel-kiroween (PUBLIC,
+      MIT detected, `.kiro/` at root, commit 5c37490).**
 - [ ] 12. Submit on Devpost (Grey): category Frankenstein, repo URL,
       working app URL/instructions, demo video (YouTube, public, <3 min),
-      Kiro usage write-up, description
+      Kiro usage write-up, description. **13 Nov: submission packet
+      drafted in `SUBMISSION.md` (all fields except the YouTube URL);
+      video upload still needs Grey; submit needs parent confirmation.**

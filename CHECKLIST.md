@@ -29,9 +29,9 @@
 
 | Tenggat | Waktu | Keterangan |
 |---|---|---|
-| Sekarang | 10 Nov 2026 | Skeleton jadi + Fase 2 + Fase 3 + Fase 4 selesai (dashboard final, 2 sumber kandidat, video demo 46 detik dengan segmen live-pass nyata, 95 test lolos) |
+| Sekarang | 13 Nov 2026 | Devpost Kiroween TERDAFTAR (JohnyKucel); akun Kiro jadi (sandijohan113@gmail.com, Free, UserID didapat); `kiro-cli login` DONE + 1 chat turn terverifikasi; repo GitHub PUBLIC (sentinel-kiroween); 95 test lolos; demo end-to-end terverifikasi ulang 13 Nov |
 | Build inti | 10–20 Nov | Live chain reads, dashboard final, video demo — SELESAI 10 Nov, lebih cepat dari jadwal |
-| Klaim credits | **sebelum 2 Des 03:00 WIB** | Form Resources tab (Dec 1 12:00 PT); kode tiba ±48 jam kerja; redeem sebelum 4 Des |
+| Klaim credits | **sebelum 2 Des 03:00 WIB** | Form Resources tab (Dec 1 12:00 PT); kode tiba ±48 jam kerja; redeem sebelum 4 Des — form BISA diisi sekarang (UserID diketahui), Didit ID check tetap butuh Grey |
 | Polish + video | 21 Nov–3 Des | README final, write-up Kiro, video final |
 | SUBMIT | **sebelum 5 Des 05:00 WIB** | Dec 4 14:00 PT; jangan submit di jam terakhir |
 | Juri | Des 2026 | Pemenang diumumkan per Devpost |
@@ -46,11 +46,17 @@
 3. **Fase 3 — dashboard + demo — SELESAI (10 Nov, lebih cepat dari jadwal 16–20 Nov):** dashboard final (`status.json` + trace tail + gate trail + live facts + kill-switch state, endpoint `/`, `/status.json`, `/health`); 2 sumber kandidat baru (`sentinel/sources.py`: static scan list `fixtures/scan-list.json` + input manual `--manual`, dedupe by contract, 16 test baru); demo end-to-end `demo/run_demo.sh` + video nyata `demo/demo.mp4` (38 detik, 1280x720, Xvfb + xterm + ffmpeg, tanpa suara): offline 1 WOULD_MINT + 4 SKIP, sources 2 + 2, live-reads 0 + 5 fail-closed, trap-test 4/4, kill switch abort mid-run (3 kandidat), verify-trace PASS; Kiro pass: hooks diperluas (sources + dashboard on-save tests, 21 passed) — Kiro CLI chat/mcp TERBUKTI butuh login Grey (`whoami` = "Not logged in", chat gagal OAuth, disarankan `login --use-device-flow`). 67 test lolos total (46 + 21 baru).
 4. **Fase 4 — polish + hardening (tanpa login Kiro) — SELESAI (10 Nov):** segmen live-reads di demo diperbaiki — langkah 3/8 tetap fail-closed (sintetis 0 + 5), langkah 4/8 BARU: kontrak nyata UnWritten (`fixtures/live-demo.json`, `0x10e46d53...`) dengan `--live-reads --wallet 0x0000...dEaD` → **1 WOULD_MINT** (live terverifikasi: exact_match, 8822/8888, balanceOf 0); fakta free/market/preview dinyatakan sebagai input demo di banner layar + steering product.md (aturan demo-honesty). Test edge-case baru `tests/test_edge_cases.py` (28 test: koersi bool string `"false"`, validasi sources, partial/wallet/nol live facts, encoding calldata balanceOf, tail trace dashboard max 15, query string, config MCP tanpa kredensial, fixture live-demo ter-pin); perbaikan hardening: `_coerce_facts` kini mem-parsing string `"false"`/`"true"` secara eksplisit (sebelumnya `bool("false")` = True — bisa lolos G2 diam-diam). MCP: server kedua `sequential-thinking` di `.kiro/settings/mcp.json` (no network, no writes). Hooks: +2 (`chain.py` + `live_facts.py` → `test_live_reads.py`, 22 passed). Steering: product (demo-honesty) + tech (MCP) + structure (modul/fixture/test terbaru). Draft write-up Kiro `KIRO_USAGE.md` (paste-ready untuk form Devpost, tabel claim / no-claim + batasan login). Video direkam ulang: `demo/demo.mp4` **46 detik, 1280x720, 662 KB** — frame dicek visual (offline 1 + 4, sources 2 + 2, live fail-closed 0 + 5, live pass 1 + 0, trap-test 4/4, kill switch abort, verify-trace PASS). **95 test lolos** (67 baseline + 28 baru). Catatan infra: `xterm` hilang dari VM (dulu ada di Fase 3) — `apt-get update` macet >13 menit, dibatalkan; xterm 390 + xbitmaps dipasang via .deb langsung dari mirror (SHA256 terverifikasi). Kiro CLI chat/MCP tetap butuh login Grey — tidak dijalankan.
 5. **Fase 5 — submit (26 Nov–4 Des):** repo public, README final,
-   video YouTube public, isi form Devpost, submit.
+   video YouTube public, isi form Devpost, submit. **13 Nov:
+   repo public DONE; `kiro-cli login` + 1 chat turn DONE; submission
+   packet drafted (`SUBMISSION.md`); tersisa video YouTube (Grey) +
+   submit (butuh konfirmasi parent).**
 
 ## Langkah registrasi — siap dieksekusi (urutan)
 
-### A. Akun Devpost — [BUTUH GREY: 1 langkah inbox]
+### A. Akun Devpost — ✅ SELESAI 13 Nov 2026
+Terdaftar sebagai JohnyKucel ("Thanks for registering!", halaman
+submission terverifikasi, 3.133 peserta saat itu). Langkah 1–5 di bawah
+sudah tidak berlaku — dicatat sebagai riwayat.
 1. Buka https://devpost.com → Sign up (atau langsung
    https://kiroween.devpost.com → Register).
 2. Pilih **Sign up with email** (jangan SSO GitHub/Google — supaya akun
@@ -63,7 +69,12 @@
    Grey forward link-nya (atau klik sendiri); akun aktif setelah klik.
 5. Di halaman Kiroween, klik **Register for this hackathon** (gratis).
 
-### B. Akun Kiro — [BUTUH GREY: sign-in + User ID]
+### B. Akun Kiro — ✅ SELESAI 13 Nov 2026
+Akun dibuat via Google sign-in sandijohan113@gmail.com (Gmail di Box);
+Free plan, 50 kredit; **Kiro User ID:
+`d-9067c98495.04a874c8-20c1-7000-ea62-d1058ad6c3c9`**; `kiro-cli login`
+DONE via device flow + 1 chat turn terverifikasi. Langkah 1–3 di bawah
+sudah tidak berlaku — dicatat sebagai riwayat.
 1. Buka https://kiro.dev → sign in (pilih **Google** atau **GitHub** —
    pakai akun yang terhubung ke darmih8@gmail.com; JANGAN buat AWS
    account — tidak dibutuhkan).
@@ -88,7 +99,11 @@
    itu penawaran TERPISAH (bukan Kiroween) dan mengikat auto-renewal.
    Klaim credits Kiroween TIDAK butuh kartu.
 
-### D. Repo GitHub public — [BUTUH GREY: tekan publish]
+### D. Repo GitHub public — ✅ SELESAI 13 Nov 2026
+**https://github.com/JohnyKucel/sentinel-kiroween** (PUBLIC, MIT, commit
+`5c37490`, `.kiro/` di root, LICENSE terdeteksi). Dibuat + push via
+`gh` CLI (login JohnyKucel, scope `repo`). Langkah 1–3 di bawah sudah
+tidak berlaku — dicatat sebagai riwayat.
 1. Pax siapkan repo lokal lengkap (sudah ada di
    `~/workspace/hackathon-big-prizes/kiroween-sentinel/`).
 2. Grey (akun GitHub `JohnyKucel`): buat repo public baru, push, dan
